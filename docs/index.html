@@ -13,125 +13,116 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0f172a; /* Sleek Dark Slate */
+            background-color: #0f172a; /* Dark Slate background */
             color: #f8fafc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 16px;
-            max-width: 480px;
-            width: 100%;
-            padding: 40px 32px;
-            text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-icon {
-            width: 72px;
-            height: 72px;
-            background-color: #38bdf8; /* Soft blue accent */
-            color: #0f172a;
-            border-radius: 50%;
-            margin: 0 auto 24px auto;
-            line-height: 72px;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            font-size: 15px;
-            color: #94a3b8;
-            margin-bottom: 32px;
-        }
-
-        .divider {
-            height: 1px;
-            background-color: #334155;
-            margin: 24px 0;
-        }
-
-        .actions {
+            height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Prevents double scrollbars outside the PDF */
+        }
+
+        /* Fixed / Sticky Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background-color: #1e293b;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
             gap: 12px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
+        .profile-mini {
+            width: 36px;
+            height: 36px;
             background-color: #38bdf8;
             color: #0f172a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
         }
 
-        .btn-primary:hover {
+        .meta-text h1 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .meta-text p {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        /* Clean, beautiful Download Button */
+        .btn-download {
+            background-color: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-download:hover {
             background-color: #7dd3fc;
             transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: #cbd5e1;
-            border: 1px solid #475569;
+        /* Main Container for the Embed */
+        .viewer-container {
+            flex: 1;
+            margin-top: 70px; /* Offset for the fixed header */
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: #0f172a;
         }
 
-        .btn-secondary:hover {
-            background-color: #273549;
-            border-color: #64748b;
-            color: #ffffff;
-        }
-
-        .footer {
-            margin-top: 32px;
-            font-size: 12px;
-            color: #64748b;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="profile-icon">VK</div>
-        <h1>Vivek Kasadwar</h1>
-        <p class="subtitle">Software Engineer & Application Developer</p>
-        
-        <div class="divider"></div>
-        
-        <div class="actions">
-            <a href="docs/Vivek Kasadwar Resume.pdf" target="_blank" class="btn btn-primary">
-                View Resume
-            </a>
-            
-            <a href="docs/Vivek Kasadwar Resume.pdf" download="Vivek_Kasadwar_Resume.pdf" class="btn btn-secondary">
-                Download PDF
-            </a>
+    <header>
+        <div class="brand">
+            <div class="profile-mini">VK</div>
+            <div class="meta-text">
+                <h1>Vivek Kasadwar</h1>
+                <p>Software Engineer & Application Developer</p>
+            </div>
         </div>
         
-        <p class="footer">Hosted via GitHub Pages</p>
+        <a href="Vivek Kasadwar Resume.pdf" download="Vivek_Kasadwar_Resume.pdf" class="btn-download">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download PDF
+        </a>
+    </header>
+
+    <div class="viewer-container">
+        <iframe src="Vivek Kasadwar Resume.pdf" type="application/pdf"></iframe>
     </div>
 
 </body>

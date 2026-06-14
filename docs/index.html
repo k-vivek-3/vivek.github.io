@@ -137,7 +137,7 @@
             background-color: #0f172a;
         }
 
-        /* Mobile Fallback View (Hidden beneath working embeds) */
+        /* Mobile Fallback View (Sits as background fail-safe) */
         .mobile-fallback {
             position: absolute;
             top: 0;
@@ -175,20 +175,20 @@
             line-height: 1.5;
         }
 
-        /* Interactive Document Frame */
+        /* High-Performance Embed Layer */
         iframe {
             position: relative;
             width: 100%;
             height: 100%;
             border: none;
-            z-index: 5; /* Sits completely over fallback on desktop engines */
+            z-index: 5;
             background-color: #0f172a;
         }
     </style>
 </head>
 <body>
 
-    <!-- Persistent Professional Header -->
+    <!-- Fixed Header Structure -->
     <header>
         <div class="profile-group">
             <div class="avatar">VK</div>
@@ -199,14 +199,13 @@
         </div>
         
         <div class="nav-actions">
-            <!-- Strategic Core Anchors -->
             <nav class="social-links">
                 <a href="https://github.com/vivek-kasadwar" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
             </nav>
 
-            <!-- GA4 Tracked Header Download Button -->
-            <a href="resume.pdf" 
+            <!-- Fixed Header Download Core Action -->
+            <a href="/resume.pdf" 
                download="Vivek-Kasadwar-Resume.pdf" 
                class="btn-download"
                onclick="gtag('event', 'file_download', {'file_name': 'Vivek-Kasadwar-Resume.pdf', 'button_location': 'header'});">
@@ -219,22 +218,20 @@
     <!-- Content Workspace -->
     <div class="workspace">
         
-        <!-- Safety Fallback: Shows up instantly on mobile browsers that block iframes -->
+        <!-- Safety Fallback UI Components -->
         <div class="mobile-fallback">
             <div class="fallback-card">
                 <h2>Curriculum Vitae</h2>
                 <p>Your browser or device does not support inline document previews. You can access the document safely using the buttons below.</p>
                 <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <!-- GA4 Tracked Mobile Direct View Button -->
-                    <a href="resume.pdf" 
+                    <a href="/resume.pdf" 
                        target="_blank" 
                        class="btn-download" 
                        style="background-color: transparent; border: 1px solid #475569; color: #cbd5e1; justify-content: center;"
                        onclick="gtag('event', 'view_resume_direct', {'file_name': 'resume.pdf', 'button_location': 'mobile_fallback'});">
                         View PDF Directly
                     </a>
-                    <!-- GA4 Tracked Mobile Download Button -->
-                    <a href="resume.pdf" 
+                    <a href="/resume.pdf" 
                        download="Vivek-Kasadwar-Resume.pdf" 
                        class="btn-download" 
                        style="justify-content: center;"
@@ -245,8 +242,8 @@
             </div>
         </div>
 
-        <!-- Desktop Core Embed Layer -->
-        <iframe src="resume.pdf" type="application/pdf"></iframe>
+        <!-- Google Docs Cloud Viewer Engine for Guaranteed Inline Cross-Device Previews -->
+        <iframe src="https://docs.google.com/gview?url=https://vivek-kasadwar.github.io/resume.pdf&embedded=true"></iframe>
 
     </div>
 
